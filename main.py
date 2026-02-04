@@ -15,7 +15,7 @@ class Prompt(BaseModel):
 @app.post("/ask")
 def ask(prompt: Prompt):
     response = client.messages.create(
-        model="claude-3-sonnet-20240229",
+        model="claude-3-sonnet",
         max_tokens=500,
         messages=[
             {"role": "user", "content": prompt.message}
