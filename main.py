@@ -18,7 +18,12 @@ def ask(prompt: Prompt):
         model="claude-3-sonnet",
         max_tokens=500,
         messages=[
-            {"role": "user", "content": prompt.message}
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": prompt.message}
+                ]
+            }
         ]
     )
     return {"reply": response.content[0].text}
